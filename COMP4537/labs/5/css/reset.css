@@ -1,0 +1,115 @@
+/* Global settings */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; }
+
+body {
+    background-color: #1e1e22;
+}
+
+/* Customizing scroll bar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #1e1e22;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: #313145;
+    border-radius: 10px;
+}
+
+/* Styling shared elements */
+.wrap {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#prompt {
+    padding: 0 20px;
+    color: #e9e9e9;
+    font-size: 30px;
+    text-align: center;
+}
+
+footer a {
+    max-width: 200px;
+    width: 85%;
+    padding: 10px 25px;
+    background-color: #62c29a;
+    border-radius: 5px;
+    color: #1e1e22;
+    font-size: 13px;
+    text-align: center;
+    text-decoration: none;
+    position: absolute;
+    bottom: 20px;
+    right: 50%;
+    transform: translate(50%); 
+    transition-duration: 0.3s;
+}
+
+footer a:hover {
+    box-shadow: inset 3px 3px 10px rgba(0, 0, 0, 0.4);
+    transform: translate(50%) scale(0.99); 
+}
+
+/* Styling error popup field */
+#errorPopupWrap {
+    max-width: 650px;
+    width: 85%;
+    padding: 20px;
+    background-color: #e9e9e9;
+    border: 1px solid #e3e3e3;
+    box-shadow: 0 0 10px rgba(30, 30, 34, 0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 30%;
+    right: 50%;
+    transform: translate(50%); 
+       
+    /* Hide popup when page is first initialized */
+    visibility: hidden;
+    opacity: 0; 
+    /* Controlling the transition properties */
+    -webkit-transition: opacity 0.4s;
+    -moz-transition: opacity 0.4s;
+    -o-transition: opacity 0.4s;
+    transition: opacity 0.4s;
+}
+
+.errorPopup {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+#errorMsg {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+#closeErrorPopupBtn {
+    padding: 10px 25px;
+    background-color: #ff5959;
+    border-radius: 5px;
+    border: 0;
+    font-size: 16px;
+    transition-duration: 0.3s;
+    cursor: pointer;
+}
+
+#closeErrorPopupBtn:hover {
+    box-shadow: inset 3px 3px 10px rgba(0, 0, 0, 0.4);
+    transform: scale(0.99);
+}

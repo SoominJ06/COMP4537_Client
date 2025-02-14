@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/search.css">
+</head>
+<body>
+    <div class="wrap">
+        <div class="searchInputWrap">
+            <div id="prompt"></div>
+            <form action="" method="get" id="searchForm">
+                <input type="text" id="searchInput"/>
+                <button type="submit" id="searchBtn"></button>
+            </form>
+        </div>
+
+        <div id="searchOutputWrap">
+            <div class="outputHeader">
+                <div id="numOfReqs"></div>
+            </div>
+            <div class="searchOutput">
+                <div id="fetchedWord"></div>
+                <p class="separation"></p>
+                <div id="fetchedDesc"></div>
+            </div>
+        </div>
+
+        <div id="errorPopupWrap">
+            <div id="errNumOfReqs"></div>
+            <div class="errorPopup">
+                <div id="errorMsg"></div>
+                <div id="errorDesc"></div>
+            </div>
+            <button id="closeErrorPopupBtn"></button>
+        </div>
+
+        <footer>
+            <a id="goToStore" href="./store.html"></a>
+        </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="lang/messages/en/user.js"></script>
+</body>
+</html>

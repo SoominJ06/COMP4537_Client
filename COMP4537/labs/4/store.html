@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/store.css">
+</head>
+<body>
+
+    <div class="wrap">
+        <div id="prompt"></div>
+        <div class="storeInputWrap">
+            <form method="post" id="storeForm">
+                <label for="wordInput" id="wordInputLabel"></label>
+                <input type="text" id="wordInput"/>
+
+                <label for="descriptionInput" id="descriptionInputLabel"></label>
+                <textarea name="" id="descriptionInput" class="descriptionInput"></textarea>
+                
+                <button type="submit" id="submitBtn"></button>
+            </form>
+        </div>
+
+        <div id="storeOutputWrap">
+            <div class="outputHeader">
+                <div id="numOfReqs"></div>
+                <div id="lastUpdated"></div>
+            </div>
+            <div class="storeOutput">
+                <div id="storeSuccessful"></div>
+                <div id="storedWord"></div>
+                <div id="numOfStoredWords"></div>
+            </div>
+            <button id="closeStoreOutput"></button>
+        </div>
+
+        <div id="errorPopupWrap">
+            <div id="errNumOfReqs"></div>
+            <div class="errorPopup">
+                <div id="errorMsg"></div>
+                <div id="errorDesc"></div>
+            </div>
+            <button id="closeErrorPopupBtn"></button>
+        </div>
+
+        <footer>
+            <a id="goToSearch" href="./search.html"></a>
+        </footer>
+    </div>
+
+    
+    <script src="js/script.js"></script>
+    <script src="lang/messages/en/user.js"></script>
+</body>
+</html>

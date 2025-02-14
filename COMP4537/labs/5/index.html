@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="wrap">
+        <div class="addDummyDataFormWrap formWrap">
+            <div class="title" id="addDummyDataTitle"></div>
+            <form id="addDummyDataForm" class="submitForm">
+                <button id="addDummyDataBtn" class="button"></button>
+            </form>
+        </div>
+
+        <div class="queryFormWrap formWrap">
+            <div class="title" id="enterStatementTitle"></div>
+            <form id="queryForm" class="submitForm">
+                <textarea name="queryInput" id="queryInput"></textarea>
+                <button id="queryBtn" class="button"></button>
+            </form>
+        </div>
+
+        <div class="outputWrap">
+            <div class="title" id="outputTitle"></div>
+            <div class="output"></div>
+        </div>
+
+        <div id="errorPopupWrap">
+            <!-- <div id="errNumOfReqs"></div> -->
+            <div class="errorPopup">
+                <div id="errorMsg"></div>
+            </div>
+            <button id="closeErrorPopupBtn"></button>
+        </div>
+    </div>
+    
+    <script src="js/script.js"></script>
+    <script src="lang/messages/en/user.js"></script>
+
+</body>
+</html>
