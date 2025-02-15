@@ -131,6 +131,35 @@ textarea:focus {
     min-height: 25vh;
     padding: 15px;
     background-color: #e9e9e9;
+    display: flex;
+    flex-direction: column;
+}
+
+#outputStatus {
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+#outputTable {
+    display: flex;
+    justify-content: center;
+}
+
+/* Table styling */
+table {
+    background-color: rgba(30, 30, 34, 0.75);
+}
+
+thead {
+    background-color: #62c29a;
+}
+
+th, td {
+    padding: 10px 25px;
+}
+
+td {
+    background-color: #e3e3e3;
 }
 
 /* Styling error popup field */

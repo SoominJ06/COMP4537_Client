@@ -6,6 +6,10 @@ const messages = {
     runStatementBtn: "Run Statement",
 
     outputTitle: "Output",
+    outputStatus: "%1 %2!",
+
+    insertSuccess: "Data was successfully inserted.",
+    numOfRowsAffected: "Rows affected: %1",
 
     closeErrorPopup: "Ok",
     inputIsEmpty: "Failed to run - An empty statement",
