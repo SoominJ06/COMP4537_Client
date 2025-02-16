@@ -57,7 +57,7 @@ class OutputController {
     // Deletes everything from output field
     emptyOutputField() {
         document.getElementById("outputStatus").innerHTML = "";
-        document.getElementById("errorMsg").innerHTML = "";
+        document.getElementById("outputMsg").innerHTML = "";
         document.getElementById("outputTable").innerHTML = "";
     }
 
@@ -83,23 +83,30 @@ class OutputController {
     }
 
     // Displays the table retrived from GET request
-    displayTable(tableData) {
-        let table = `<table>
-                        <thead><tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Date Of Birth</th>
-                        </thead></tr>
-                        <tbody>`;
-        for (let i = 0; i < tableData.length; i++) {
-            table += `<tr>
-                            <td>${tableData[i].patientID}</td>
-                            <td>${tableData[i].name}</td>
-                            <td>${tableData[i].dateOfBirth}</td>
-                        </tr>`;
-        }
-        table += "</tbody></table>";
-
+    displayTable(tableData) {    
+        // Extract the column names dynamically from the first object
+        const columnNames = Object.keys(tableData[0]);
+    
+        let table = `<table><thead><tr>`;
+        
+        // Dynamically create table headers
+        columnNames.forEach(column => {
+            table += `<th>${column}</th>`;
+        });
+    
+        table += `</tr></thead><tbody>`;
+    
+        // Dynamically create table rows
+        tableData.forEach(row => {
+            table += `<tr>`;
+            columnNames.forEach(column => {
+                table += `<td>${row[column] !== undefined ? row[column] : ""}</td>`;
+            });
+            table += `</tr>`;
+        });
+    
+        table += `</tbody></table>`;
+    
         this.emptyOutputField();
         document.getElementById("outputTable").innerHTML = table;
     }
