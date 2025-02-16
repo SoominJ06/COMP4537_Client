@@ -14,9 +14,8 @@ class APIController {
         this.xhttp.onreadystatechange = () => { 
             if (this.xhttp.readyState === 4) {
                 const response = JSON.parse(this.xhttp.responseText);
-                console.log(response)
                 if (response.status === "success" && this.xhttp.status === 201) {
-                    this.outputController.displayStatementOutput(response.data.rows_affected);
+                    this.outputController.displayRowsAffected(response.data.rows_affected);
                 } else {
                     this.outputController.displayErrorOutput(this.xhttp.status, response.status, response.message)
                 }
@@ -34,20 +33,13 @@ class APIController {
             if (this.xhttp.readyState === 4) {
                 const response = JSON.parse(this.xhttp.responseText);
                 if (response.status === "success" && this.xhttp.status === 200) {
-                    // Display dummy table
-                    // let test = [
-                    //     {"id": 0, "name" : "Test1", "dob": "2000-01-01"}, 
-                    //     {"id": 1, "name" : "Test2", "dob": "2000-02-02"}, 
-                    //     {"id": 2, "name" : "Test3", "dob": "2000-03-03"}, 
-                    // ];
-                    // this.outputController.displayTable(test);
-                    this.outputController.displayTable(response.data.results);
+                    this.outputController.displayTable(response.items);
                 } else {
                     this.outputController.displayErrorOutput(this.xhttp.status, response.status, response.message);
                 }
             }
         };
-    }    
+    }
 
     // Sends the INSERT statement to server with a dummy data
     insertDummyData() {
@@ -61,6 +53,14 @@ class APIController {
 }
 
 class OutputController {
+
+    // Deletes everything from output field
+    emptyOutputField() {
+        document.getElementById("outputStatus").innerHTML = "";
+        document.getElementById("errorMsg").innerHTML = "";
+        document.getElementById("outputTable").innerHTML = "";
+    }
+
     // Inserts error pop up
     insertErrorPopup(errorMsg) {
         document.getElementById("errorPopupWrap").style.opacity = "1";
@@ -70,12 +70,14 @@ class OutputController {
 
     // Displays the error output
     displayErrorOutput(status, statusMsg, outputMsg) {
+        this.emptyOutputField();
         document.getElementById("outputStatus").innerHTML = messages.outputStatus.replace("%1", status).replace("%2", statusMsg);
         document.getElementById("outputMsg").innerHTML = outputMsg;
     }
 
     // Displays GET error output
     displayRowsAffected(numOfRows) {
+        this.emptyOutputField();
         document.getElementById("outputStatus").innerHTML = messages.insertSuccess;
         document.getElementById("outputMsg").innerHTML = messages.numOfRowsAffected.replace("%1", numOfRows);
     }
@@ -91,13 +93,14 @@ class OutputController {
                         <tbody>`;
         for (let i = 0; i < tableData.length; i++) {
             table += `<tr>
-                            <td>${tableData[i].id}</td>
+                            <td>${tableData[i].patientID}</td>
                             <td>${tableData[i].name}</td>
-                            <td>${tableData[i].dob}</td>
+                            <td>${tableData[i].dateOfBirth}</td>
                         </tr>`;
         }
         table += "</tbody></table>";
 
+        this.emptyOutputField();
         document.getElementById("outputTable").innerHTML = table;
     }
 

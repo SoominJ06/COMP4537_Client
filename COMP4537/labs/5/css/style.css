@@ -10,12 +10,22 @@ body {
     width: 10px;
 }
 ::-webkit-scrollbar-track {
-    background: #1e1e22;
-    border-radius: 10px;
+    background: #47475f;
 }
 ::-webkit-scrollbar-thumb {
     background: #313145;
-    border-radius: 10px;
+}
+
+textarea::-webkit-scrollbar {
+    width: 7px;
+}
+textarea::-webkit-scrollbar-track {
+    background: rgba(30, 30, 34, 0.6);
+    border-radius: 0px;
+}
+textarea::-webkit-scrollbar-thumb {
+    background: #313145;
+    border-radius: 0px;
 }
 
 /* Disabling the resize option of textarea */
@@ -38,8 +48,8 @@ textarea:focus {
 /* Styling shared elements */
 .wrap {
     width: 100%;
-    height: 100vh;
-    padding: 0 35px;
+    min-height: 100vh;
+    padding: 35px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -147,6 +157,7 @@ textarea:focus {
 
 /* Table styling */
 table {
+    font-size: 12px;
     background-color: rgba(30, 30, 34, 0.75);
 }
 
@@ -155,7 +166,7 @@ thead {
 }
 
 th, td {
-    padding: 10px 25px;
+    padding: 10px 3vw;
 }
 
 td {
