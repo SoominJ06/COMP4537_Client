@@ -34,6 +34,8 @@ class APIController {
                 const response = JSON.parse(this.xhttp.responseText);
                 if (response.status === "success" && this.xhttp.status === 200) {
                     this.outputController.displayTable(response.items);
+                } else if (response.status === "success" && this.xhttp.status === 201) {
+                    this.outputController.displayRowsAffected(response.data.rows_affected);
                 } else {
                     this.outputController.displayErrorOutput(this.xhttp.status, response.status, response.message);
                 }
