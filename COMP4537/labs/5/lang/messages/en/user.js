@@ -7,6 +7,7 @@ const messages = {
 
     outputTitle: "Output",
     outputStatus: "%1 %2!",
+    resultIsEmpty: "Table is empty",
 
     insertSuccess: "Data was successfully inserted.",
     numOfRowsAffected: "Rows affected: %1",

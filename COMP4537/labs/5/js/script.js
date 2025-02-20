@@ -86,6 +86,13 @@ class OutputController {
 
     // Displays the table retrived from GET request
     displayTable(tableData) {    
+        // Checks if tableData is empty
+        if (tableData.length <= 0) {
+            this.emptyOutputField();
+            document.getElementById("outputMsg").innerHTML = messages.resultIsEmpty;
+            return;
+        }
+
         // Extract the column names dynamically from the first object
         const columnNames = Object.keys(tableData[0]);
     
